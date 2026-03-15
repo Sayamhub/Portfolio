@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sayam Mokhtar Khan | Financial Crime Compliance</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --coral: #D85A30; --coral-lt: #FAECE7; --coral-dk: #993C1D;
+    --teal: #1D9E75; --teal-lt: #E1F5EE; --teal-dk: #085041;
+    --purple: #534AB7; --purple-lt: #EEEDFE;
+    --amber: #BA7517; --amber-lt: #FAEEDA;
+    --pink: #D4537E; --pink-lt: #FBEAF0;
+    --blue: #185FA5; --blue-lt: #E6F1FB;
+    --bg: #FAFAF8; --text: #2C2C2A; --muted: #5F5E5A; --border: rgba(0,0,0,0.08);
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.5px; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 400; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--coral); }
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 90vh; overflow: hidden; }
+  .hero-left { padding: 5rem 3rem 5rem 5rem; display: flex; flex-direction: column; justify-content: center; background: white; }
+  .hero-tag { display: inline-block; background: var(--coral-lt); color: var(--coral-dk); font-size: 0.75rem; font-weight: 500; padding: 0.35rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem; letter-spacing: 0.5px; text-transform: uppercase; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-size: 3.8rem; font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.25rem; }
+  .hero h1 span { color: var(--coral); }
+  .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 380px; margin-bottom: 2rem; font-weight: 300; line-height: 1.7; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--coral); color: white; border: none; padding: 0.75rem 1.75rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--coral-dk); }
+  .btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); padding: 0.75rem 1.75rem; border-radius: 100px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 400; cursor: pointer; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+  .hero-right { background: linear-gradient(135deg, #FBEAF0 0%, #E1F5EE 50%, #EEEDFE 100%); display: flex; align-items: center; justify-content: center; padding: 3rem; position: relative; }
+  .hero-card { background: white; border-radius: 24px; padding: 2rem; width: 320px; box-shadow: 0 8px 48px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+  .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--coral); display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: white; margin-bottom: 1rem; }
+  .hero-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .hero-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.25rem; }
+  .stat-row { display: flex; gap: 1rem; margin-bottom: 1rem; }
+  .stat-box { flex: 1; background: var(--bg); border-radius: 12px; padding: 0.75rem; text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--coral); }
+  .stat-lbl { font-size: 0.72rem; color: var(--muted); }
+  .cert-badge { display: flex; align-items: center; gap: 0.5rem; background: var(--teal-lt); border-radius: 100px; padding: 0.4rem 0.85rem; font-size: 0.75rem; color: var(--teal-dk); font-weight: 500; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .blob1, .blob2 { position: absolute; border-radius: 50%; opacity: 0.5; }
+  .blob1 { width: 180px; height: 180px; background: var(--pink-lt); top: 10%; right: 5%; }
+  .blob2 { width: 120px; height: 120px; background: var(--teal-lt); bottom: 10%; left: 5%; }
+  section { padding: 5rem; }
+  .section-header { margin-bottom: 3rem; }
+  .section-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 500; margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; letter-spacing: -1px; line-height: 1.1; }
+  #expertise { background: white; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  .tile { border-radius: 16px; padding: 1.75rem; transition: transform 0.2s; }
+  .tile:hover { transform: translateY(-4px); }
+  .tile-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .tile h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .tile p { font-size: 0.85rem; line-height: 1.6; opacity: 0.85; }
+  .t1 { background: var(--coral-lt); color: var(--coral-dk); }
+  .t2 { background: var(--teal-lt); color: var(--teal-dk); }
+  .t3 { background: var(--purple-lt); color: var(--purple); }
+  .t4 { background: var(--amber-lt); color: var(--amber); }
+  .t5 { background: var(--pink-lt); color: var(--pink); }
+  .t6 { background: var(--blue-lt); color: var(--blue); }
+  #experience { background: var(--bg); }
+  .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .exp-card { background: white; border-radius: 16px; padding: 1.75rem; border: 1px solid var(--border); transition: box-shadow 0.2s; }
+  .exp-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+  .exp-card:first-child { grid-column: 1 / -1; background: var(--coral); color: white; border: none; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+  .exp-company { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; }
+  .exp-period { font-size: 0.78rem; background: rgba(0,0,0,0.07); padding: 0.25rem 0.6rem; border-radius: 100px; color: inherit; opacity: 0.8; }
+  .exp-card:first-child .exp-period { background: rgba(255,255,255,0.2); }
+  .exp-role { font-size: 0.88rem; opacity: 0.75; margin-bottom: 0.75rem; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li { font-size: 0.83rem; padding: 0.2rem 0; opacity: 0.85; }
+  .exp-bullets li::before { content: '→ '; opacity: 0.5; }
+  #tools { background: white; }
+  .tools-wrap { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .tool-chip { padding: 0.45rem 1.1rem; border-radius: 100px; font-size: 0.82rem; font-weight: 500; border: 1.5px solid transparent; transition: transform 0.15s; }
+  .tool-chip:hover { transform: scale(1.05); }
+  .chip-coral { background: var(--coral-lt); color: var(--coral-dk); border-color: #F0997B; }
+  .chip-teal { background: var(--teal-lt); color: var(--teal-dk); border-color: #5DCAA5; }
+  .chip-purple { background: var(--purple-lt); color: var(--purple); border-color: #AFA9EC; }
+  .chip-amber { background: var(--amber-lt); color: var(--amber); border-color: #EF9F27; }
+  .chip-blue { background: var(--blue-lt); color: var(--blue); border-color: #85B7EB; }
+  .chip-pink { background: var(--pink-lt); color: var(--pink); border-color: #ED93B1; }
+  #contact { background: var(--text); color: white; text-align: center; }
+  #contact .section-title { color: white; }
+  .contact-grid { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+  .contact-item { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1rem 1.5rem; text-align: left; min-width: 200px; }
+  .contact-item .c-label { font-size: 0.72rem; opacity: 0.5; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
+  .contact-item .c-val { font-size: 0.9rem; }
+  .avail-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal-lt); color: var(--teal-dk); border-radius: 100px; padding: 0.4rem 1rem; font-size: 0.82rem; font-weight: 500; margin-top: 1rem; }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 4rem 2rem; }
+    .hero h1 { font-size: 2.6rem; }
+    section { padding: 3rem 1.5rem; }
+    .tiles { grid-template-columns: 1fr 1fr; }
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-card:first-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <span class="nav-logo">SMK</span>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Available for Immediate Joining</span>
+    <h1>Sayam<br>Mokhtar<br><span>Khan</span></h1>
+    <p class="hero-sub">Financial Crime Compliance professional with 10+ years guarding global banks from AML, fraud, and sanctions risk.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
+      <button class="btn-outline" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">View Experience</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="blob1"></div>
+    <div class="blob2"></div>
+    <div class="hero-card">
+      <div class="avatar">SK</div>
+      <h3>Sayam Mokhtar Khan</h3>
+      <p>Financial Crime Compliance · Bengaluru, India</p>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">10+</div><div class="stat-lbl">Years Exp.</div></div>
+        <div class="stat-box"><div class="stat-num">5</div><div class="stat-lbl">Global Banks</div></div>
+        <div class="stat-box"><div class="stat-num">3</div><div class="stat-lbl">Certifications</div></div>
+      </div>
+      <div class="cert-badge"><div class="dot"></div>GO-AKS Certified KYC Specialist — Active</div>
+    </div>
+  </div>
+</div>
+<section id="expertise">
+  <div class="section-header">
+    <div class="section-tag">What I Do</div>
+    <div class="section-title">Core Expertise</div>
+  </div>
+  <div class="tiles">
+    <div class="tile t1"><div class="tile-icon">🔍</div><h4>AML &amp; KYC</h4><p>End-to-end CDD/EDD onboarding, periodic reviews, and risk rating across retail, commercial &amp; high-risk segments.</p></div>
+    <div class="tile t2"><div class="tile-icon">📊</div><h4>Transaction Monitoring</h4><p>SAR/STR investigations, alert adjudication, and typology analysis on high-volume payment flows.</p></div>
+    <div class="tile t3"><div class="tile-icon">🌐</div><h4>Sanctions Screening</h4><p>OFAC, UN, EU &amp; CBUAE sanctions checks using Fircosoft, World-Check &amp; Dow Jones Risk Intelligence.</p></div>
+    <div class="tile t4"><div class="tile-icon">⚖️</div><h4>Regulatory Compliance</h4><p>Deep alignment with FATF, AUSTRAC, BSA, and CBUAE frameworks across multiple jurisdictions.</p></div>
+    <div class="tile t5"><div class="tile-icon">🏦</div><h4>Trade Finance</h4><p>Documentary credit compliance, SWIFT screening, and trade-based money laundering (TBML) red flag identification.</p></div>
+    <div class="tile t6"><div class="tile-icon">📋</div><h4>Quality &amp; Audit</h4><p>QC reviews, SOP creation, and regulatory audit support with zero critical findings in recent engagements.</p></div>
+  </div>
+</section>
+<section id="experience">
+  <div class="section-header">
+    <div class="section-tag">Career History</div>
+    <div class="section-title">Where I've Worked</div>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card">
+      <div class="exp-header"><div class="exp-company">Commonwealth Bank of Australia</div><span class="exp-period">Nov 2021 – Jan 2026</span></div>
+      <div class="exp-role">Financial Crime Operations Analyst · Bengaluru</div>
+      <ul class="exp-bullets">
+        <li>Led AML/KYC reviews across CDD/EDD for retail &amp; business banking portfolios</li>
+        <li>Conducted transaction monitoring alert investigations with SAR escalation</li>
+        <li>Drove AUSTRAC compliance initiatives and periodic risk-based review cycles</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header"><div class="exp-company">Societe Generale</div><span class="exp-period">May – Oct 2021</span></div>
+      <div class="exp-role">Senior Analyst · Bengaluru</div>
+      <ul class="exp-bullets">
+        <li>Performed enhanced due diligence on high-risk corporate counterparties</li>
+        <li>Sanctions screening &amp; adverse media reviews using LexisNexis &amp; RDC</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header"><div class="exp-company">Deutsche Bank</div><span class="exp-period">Sep 2018 – Apr 2021</span></div>
+      <div class="exp-role">Analyst · Bengaluru</div>
+      <ul class="exp-bullets">
+        <li>Managed client onboarding &amp; periodic reviews via DBCAR &amp; DBCLM platforms</li>
+        <li>Supported trade finance compliance and SWIFT payment screening</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header"><div class="exp-company">JPMorgan Chase</div><span class="exp-period">Aug 2017 – Aug 2018</span></div>
+      <div class="exp-role">Operations Analyst · Bengaluru</div>
+      <ul class="exp-bullets">
+        <li>Processed KYC documentation for onboarding of institutional clients</li>
+        <li>Conducted name screening and PEP checks using Dow Jones</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="tools">
+  <div class="section-header">
+    <div class="section-tag">Tech &amp; Platforms</div>
+    <div class="section-title">Tools I Use</div>
+  </div>
+  <div class="tools-wrap">
+    <span class="tool-chip chip-coral">World-Check</span>
+    <span class="tool-chip chip-teal">LexisNexis</span>
+    <span class="tool-chip chip-purple">Fircosoft</span>
+    <span class="tool-chip chip-amber">Dow Jones</span>
+    <span class="tool-chip chip-blue">RDC</span>
+    <span class="tool-chip chip-pink">DBCAR</span>
+    <span class="tool-chip chip-coral">DBCLM</span>
+    <span class="tool-chip chip-teal">MS Excel (Advanced)</span>
+    <span class="tool-chip chip-purple">AUSTRAC Reporting</span>
+    <span class="tool-chip chip-amber">SWIFT Screening</span>
+    <span class="tool-chip chip-blue">FATF Frameworks</span>
+    <span class="tool-chip chip-pink">OFAC / UN Sanctions</span>
+    <span class="tool-chip chip-coral">CBUAE Regulations</span>
+    <span class="tool-chip chip-teal">SAR / STR Filing</span>
+    <span class="tool-chip chip-purple">BSA Compliance</span>
+  </div>
+</section>
+<section id="contact">
+  <div class="section-tag" style="color:rgba(255,255,255,0.4);">Let's Connect</div>
+  <div class="section-title">Ready to Contribute</div>
+  <div class="avail-badge"><div class="pulse"></div>Open to roles in India &amp; UAE</div>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="c-label">Email</div><div class="c-val">sayamakafaraz@gmail.com</div></div>
+    <div class="contact-item"><div class="c-label">India</div><div class="c-val">+91 96320 83275</div></div>
+    <div class="contact-item"><div class="c-label">UAE</div><div class="c-val">+971 581 152922</div></div>
+    <div class="contact-item"><div class="c-label">LinkedIn</div><div class="c-val">linkedin.com/in/sayamkhan</div></div>
+  </div>
+</section>
+</body>
+</html>
